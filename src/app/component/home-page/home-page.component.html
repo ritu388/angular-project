@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="main-outer">
+        <div class="button-area">
+            <button class="btn btn-primary mb-3 mt-2" (click)="addnew()">Add +</button>
+        </div>
+        <div class="main-inner">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Roll No
+                        </th>
+                        <th>
+                            Date Of Birth
+                        </th>
+                        <th>
+                            Phone No
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data in students"> {{data.Id}}</tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

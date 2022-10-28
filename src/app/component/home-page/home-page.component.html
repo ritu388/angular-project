@@ -28,7 +28,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let data in students"> {{data.Id}}</tr>
+                    <tr *ngFor="let data in students; let i = index;"> {{data.Id}}</tr>
                 </tbody>
             </table>
         </div>

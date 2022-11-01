@@ -13,13 +13,13 @@ export class HomePageComponent implements OnInit {
     public homeService: HomeService) { }
 
   ngOnInit(): void {
-    this.homeService.StudentData;
+   console.log("data of service ", this.homeService.StudentData) 
   }
 
   addnew(){
     this.router.navigateByUrl('Add-data');
   }
   getDataByJson() {
-
+this.data = this.homeService.StudentData;
   }
 }

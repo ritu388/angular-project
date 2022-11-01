@@ -1,38 +1,51 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { HomeService } from 'src/app/services/home.service';
 
 @Component({
   selector: 'app-add-data',
   templateUrl: './add-data.component.html',
-  styleUrls: ['./add-data.component.scss']
+  // styleUrls: ['./add-data.component.scss' 
 })
 export class AddDataComponent implements OnInit {
 studentData: FormGroup;
 submitted: {};
-  constructor() { }
+data;
+  constructor(
+    public homeSearvice:HomeService,
+    private router: Router,
+  ) { }
 
   ngOnInit(){
+    this.createFormControl();
   }
 
 
   createFormControl() {
     this.studentData = new FormGroup ({
-      ID: new FormControl(),
+      Id: new FormControl(),
       Name: new FormControl(''),
       RollNo: new FormControl(),
-      DOB: new FormControl()
+      DateOFBirth: new FormControl(),
+      Phone: new FormControl()
     });
   }
 
   setEditForm(data) {
     if(data) {
-      ID: this.studentData.value.ID;
+      Id: this.studentData.value.Id;
       Name: this.studentData.value.Name;
       RollNo: this.studentData.value.RollNo;
-      DOB: this.studentData.value.DOB;
+      DateOFBirth: this.studentData.value.DateOFBirth;
+      Phone: this.studentData.value.Phone;
     }
   }
-  submitData(value) {
-    console.log('value of student data form', value);
+  submitData() {
+    console.log('value of student data form', this.studentData);
+    // this.data = this.homeSearvice.StudentData;
+    this.homeSearvice.StudentData.push(this.studentData.value);
+    console.log('data is successfully added', this.homeSearvice.StudentData)
+    this.router.navigate([`Home-page`]);
   }
 }

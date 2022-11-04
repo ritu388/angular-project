@@ -9,6 +9,7 @@ export class HomeService {
 
   StudentData = [
     {
+      // "DisplayName":'ID',
       "Id": 1,
       "Name": 'Ritu Pandey',
       "RollNo" : 12,

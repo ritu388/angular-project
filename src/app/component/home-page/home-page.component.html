@@ -22,7 +22,7 @@
                         <th>
                             Phone No
                         </th>
-                        <th>
+                        <th >
                             Action
                         </th>
                     </tr>
@@ -34,6 +34,9 @@
                         <td>{{item?.RollNo}}</td>
                         <td>{{item?.DateOFBirth}}</td>
                         <td>{{item?.Phone}}</td>
+                        <td><div>
+                            <a class="icon"><i class="fa-solid fa-pen-to-square" (click)="openeditfunction(item.Id)">Edit</i></a>
+                        </div></td>
                     </tr>
                 </tbody>
             </table>

@@ -36,7 +36,8 @@
                         <td>{{item?.Phone}}</td>
                         <td><div>
                             <a class="icon"><i class="fa-solid fa-pen-to-square" (click)="openeditfunction(item.Id)">Edit</i></a> &nbsp;&nbsp;
-                            <a class="icon"><i (click)="openViewFunction(item.Id)">View</i></a>
+                            <a class="icon"><i (click)="openViewFunction(item.Id)">View</i></a>&nbsp;&nbsp;
+                            <a class="icon"><i (click)="deleteRow(item.Id)">delete</i></a>
                         </div></td>
                     </tr>
                 </tbody>

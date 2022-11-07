@@ -1,9 +1,9 @@
 import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HomeService } from 'src/app/services/home.service';
-
+// import {ModalDismissReasons, NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-add-data',
   templateUrl: './add-data.component.html',
@@ -17,6 +17,10 @@ dataId;
 disableSubmit = true;
 action: string;
 userData;
+submitHeader;
+submitMsg;
+// @ViewChild('confirmationModal', {static: true}) confirmationModal: NgbModal;
+
   constructor(
     public homeSearvice:HomeService,
     private router: Router,
@@ -91,6 +95,20 @@ userData;
       this.setEditForm(obj);
   }
   
-
+  routeDashboardAfterConfirmation(){
+    if (this.action === 'add') {
+      this.router.navigate(['tools']);
+    } else if (this.action === 'edit') {
+      this.router.navigate(['tools']);
+    }
+  }
   
+
+  // How to delete row of table using angular?
+
+
+
+
+
+
 }

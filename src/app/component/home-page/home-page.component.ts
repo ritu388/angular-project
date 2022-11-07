@@ -21,7 +21,6 @@ export class HomePageComponent implements OnInit {
   }
 
   data;
-  ;
   constructor(private router: Router,
     public homeService: HomeService) { }
 
@@ -48,4 +47,14 @@ this.data = this.homeService.StudentData;
     this.router.navigateByUrl(navUrl) 
   }
   
+  deleteRow(id){
+    this.data = this.homeService.StudentData;
+    for(let i = 0; i < this.data.length; ++i){
+      console.log("data", this.data);
+      if (this.data[i].Id === id) {
+          this.data.splice(i,1);
+          console.log('data is deleted', this.data)
+      }
+  }
+  }
 }

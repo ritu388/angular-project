@@ -24,4 +24,7 @@ export class HomeService {
        "Phone": 32324343
      },
   ]
+
+
+  updateStudentData = [];
 }

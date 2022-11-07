@@ -40,8 +40,12 @@ this.data = this.homeService.StudentData;
 
   openeditfunction(dataId){
     let navUrl = 'Add-data/edit/' + dataId;
-    this.router.navigateByUrl(navUrl)
-    
+    this.router.navigateByUrl(navUrl) 
+  }
+
+  openViewFunction(dataId){
+    let navUrl = 'Add-data/view/' + dataId;
+    this.router.navigateByUrl(navUrl) 
   }
   
 }

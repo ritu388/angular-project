@@ -3,6 +3,15 @@
         <div class="button-area">
             <button class="btn btn-primary mb-3 mt-2" (click)="addnew()">Add +</button>
         </div>
+        
+        <div class="modal-body">
+            <form>
+                    <div class="mb-3">
+                            <input type="file" class="form-control" id="excel-file" (change)="onFileChange($event)">
+                    </div>
+            </form>
+            <button type="button" class="btn btn-primary" id="addQueryStatusModal" (click)="uploadExcel()">Upload</button>
+    </div>
         <div class="main-inner">
             <table class="table">
                 <thead class="thead-dark">

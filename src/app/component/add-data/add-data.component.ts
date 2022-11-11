@@ -104,11 +104,5 @@ submitMsg;
   }
   
 
-  // How to delete row of table using angular?
-
-
-
-
-
 
 }

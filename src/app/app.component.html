@@ -1,3 +1,19 @@
 
 <router-outlet></router-outlet>
 <!-- <app-home-page></app-home-page> -->
+
+<table>
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let mydata of data">
+                      <td>{{mydata.name}}</td>
+                      <td>{{mydata.position}}</td>
+                    </tr>
+                    </tbody>
+                </table>

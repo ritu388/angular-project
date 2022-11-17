@@ -1,17 +1,24 @@
 <div class="container">
     <div class="main-outer">
-        <div class="button-area">
-            <button class="btn btn-primary mb-3 mt-2" (click)="addnew()">Add +</button>
-        </div>
         
-        <div class="modal-body">
-            <form>
-                    <div class="mb-3">
-                            <input type="file" class="form-control" id="excel-file" (change)="onFileChange($event)">
-                    </div>
-            </form>
-            <button type="button" class="btn btn-primary" id="addQueryStatusModal" (click)="uploadExcel()">Upload</button>
-    </div>
+        <div class="card-title text-capitalize">
+            <div class="w-60">
+              <div class="form-check-inline mt-1 actionable_info">
+                <button type="button" class="btn btn-primary add-form col-md-12 p-2 mr-5" (click)="addnew()" >
+                  Add New
+                </button>
+              </div>
+
+              <div class="tbl_search col-md-4 text-end p-0" style="position: relative; flex-basis: 20rem;">
+                <label>Search:</label>
+                <input type="text" class="form-control search_bar" 
+                (keyup)="globalSearch()" name="search">
+                <span class="search_close_cross" type="button" (click)="clearGobalSearch()"><i class="fa fa-times"></i></span>
+            </div>
+            
+            </div>
+          </div>
+        
         <div class="main-inner">
             <table class="table">
                 <thead class="thead-dark">

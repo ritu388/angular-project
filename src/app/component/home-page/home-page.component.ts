@@ -112,4 +112,12 @@ export class HomePageComponent implements OnInit {
       this.homeService.StudentData.push(this.dataArray.value);
     }
   }
+
+  globalSearch(){
+
+  }
+
+  clearGobalSearch(){
+    
+  }
 }

@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
+const router = require('./router');
+const {xyz}=require('./controller');
 
-app.route('/api/Home-page').get((req, res) =>{
-                    res.send({
-                      Name: [{name: 'Ritu', position: 'Angular Developer'}]
-                    });
-});
+app.use('/api',router)
+
+console.log("hey")
 app.listen(8000, () =>{
                     console.log('Server Started!');
 });

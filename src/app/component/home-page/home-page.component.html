@@ -1,27 +1,23 @@
 <div class="container">
     <div class="main-outer">
         
-        <div class="card-title text-capitalize">
-            <div class="w-60">
+        <div class="container">
+            <div class="row">
               <div class="form-check-inline mt-1 actionable_info">
                 <button type="button" class="btn btn-primary add-form col-md-12 p-2 mr-5" (click)="addnew()" >
                   Add New
                 </button>
               </div>
-
-              <div class="tbl_search col-md-4 text-end p-0" style="position: relative; flex-basis: 20rem;">
-                <label>Search:</label>
-                <input type="text" class="form-control search_bar" 
-                (keyup)="globalSearch()" name="search">
-                <span class="search_close_cross" type="button" (click)="clearGobalSearch()"><i class="fa fa-times"></i></span>
-            </div>
+              <div class="search-hero">
+                <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
+              </div>
             
             </div>
           </div>
         
         <div class="main-inner">
-            <table class="table">
-                <thead class="thead-dark">
+            <table class="table table-striped">
+                <thead>
                     <tr>
                         <th>
                             ID
@@ -44,7 +40,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr  *ngFor="let item of homeService.StudentData; let i = index">
+                    <tr  *ngFor="let item of homeService.StudentData | filter:searchText; let i = index">
                         <td>{{item?.Id}}</td>
                         <td>{{item?.Name}}</td>
                         <td>{{item?.RollNo}}</td>

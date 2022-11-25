@@ -49,6 +49,7 @@ submitMsg;
   }
 
   setEditForm(data) {
+    console.log('enter in seteditform',data)
     if(data) {
       this.studentData.get('Id').setValue(data.Id);
       this.studentData.get('Name').setValue(data.Name);
@@ -57,10 +58,11 @@ submitMsg;
       this.studentData.get('Phone').setValue(data.Phone);
     }
     if(this.action === 'view') {
+      console.log('enter in view condition');
       this.studentData.disable();
-      this.disableSubmit = false;
     }
   }
+
   submitData() {
     const dataForm = {
       Id: this.studentData.value.Id,
@@ -72,7 +74,7 @@ submitMsg;
     const userData = {};
     if(dataForm) {
       for(let prop in dataForm) {
-        dataForm[prop] = userData[prop];
+          dataForm[prop] = userData[prop];
       }
     } if(this.action === 'edit') {
       this.homeSearvice.updateStudentData.push(userData);

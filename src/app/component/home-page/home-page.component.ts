@@ -11,6 +11,8 @@ export class HomePageComponent implements OnInit {
   deferredPrompt: any;
   showButton = false;
   dataArray;
+  filteredNotes;
+  searchKey = String;
   @HostListener('window:beforeinstallprompt', ['$event'])
   onbeforeinstallprompt(e) {
     console.log(e);
@@ -20,7 +22,7 @@ export class HomePageComponent implements OnInit {
     this.deferredPrompt = e;
     this.showButton = true;
   }
-
+  searchText;
   data;
   constructor(private router: Router, public homeService: HomeService) {}
 
@@ -114,7 +116,7 @@ export class HomePageComponent implements OnInit {
   }
 
   globalSearch(){
-
+    
   }
 
   clearGobalSearch(){

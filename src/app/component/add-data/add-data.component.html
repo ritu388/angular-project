@@ -8,7 +8,7 @@
                   <span class="text-danger">*</span>
                 </div>
                 <div class="w-60">
-                  <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" [disabled]="action==='view'"
+                  <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                    class="form-control w-100"  placeholder="" aria-label="inp" formControlName="Id">
                 </div>
               </div>
@@ -17,7 +17,7 @@
                   <label class="text-capitalize">Name :</label>
                 </div>
                 <div class="w-60">
-                  <input type="text" class="form-control w-100"  placeholder="" aria-label="inp" formControlName="Name" [disabled]="action==='view'">
+                  <input type="text" class="form-control w-100"  placeholder="" aria-label="inp" formControlName="Name">
                 </div>
               </div>
               <div class="form-group col-md-6 mb-3">
@@ -25,7 +25,7 @@
                   <label class="text-capitalize">Roll No :</label>
                 </div>
                 <div class="w-60">
-                  <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" [disabled]="action==='view'"
+                  <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                   class="form-control w-100"  placeholder="" aria-label="inp" formControlName="RollNo" >
                 </div>
               </div>
@@ -34,7 +34,7 @@
                   <label class="text-capitalize">Date Of Birth :</label>
                 </div>
                 <div class="w-60">
-                  <input type="date" class="form-control w-100"  placeholder="" aria-label="inp" formControlName="DateOFBirth" [disabled]="action==='view'">
+                  <input type="date" class="form-control w-100"  placeholder="" aria-label="inp" formControlName="DateOFBirth">
                 </div>
                 
               </div>
@@ -43,10 +43,11 @@
                   <label class="text-capitalize">Phone No :</label>
                 </div>
                 <div class="w-60">
-                  <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  [disabled]="action==='view'"
+                  <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                    class="form-control w-100"  placeholder="" aria-label="inp" formControlName="Phone" [maxlength]="10">
                 </div>
               </div>
+
               </div>
             <div>
               <button class="btn btn-primary mb-3 mt-2" data-target="#confirmationModal" (click)="submitData()" [disabled]="studentData.controls['Id'].invalid || studentData.controls['Name'].invalid || studentData.controls['RollNo'].invalid || studentData.controls['DateOFBirth'].invalid || studentData.controls['Phone'].invalid || action=== 'view'">Save</button>

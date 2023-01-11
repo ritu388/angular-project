@@ -43,7 +43,7 @@ submitMsg;
       Id: new FormControl({value: '', disabled: this.action === 'view'}, {validators: [Validators.required]}),
       Name: new FormControl({value: '', disabled: this.action === 'view'}, {validators: [Validators.required]}),
       RollNo: new FormControl({value: '', disabled: this.action === 'view'}, {validators: [Validators.required]}),
-      DateOFBirth: new FormControl({value: null , disabled: this.action === 'view'}, {validators: [Validators.required]}),
+      DateOFBirth: new FormControl({value: '' , disabled: this.action === 'view'}, {validators: [Validators.required]}),
       Phone: new FormControl({value: '', disabled: this.action === 'view'}, {validators: [Validators.required]})
     });
   }
@@ -60,6 +60,7 @@ submitMsg;
     if(this.action === 'view') {
       console.log('enter in view condition');
       this.studentData.disable();
+      console.log('this.studentData.disable()',this.studentData.disable())
     }
   }
 

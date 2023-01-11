@@ -24,7 +24,8 @@ export class HomePageComponent implements OnInit {
   }
   searchText;
   data;
-  constructor(private router: Router, public homeService: HomeService) {}
+  constructor(private router: Router, public homeService: HomeService) {
+  }
 
   ngOnInit(): void {
     console.log('data of service ', this.homeService.StudentData);
@@ -44,8 +45,11 @@ export class HomePageComponent implements OnInit {
   }
 
   openViewFunction(dataId) {
+    console.log('enter in view Function')
     let navUrl = 'Add-data/view/' + dataId;
+    console.log('navURL', navUrl)
     this.router.navigateByUrl(navUrl);
+    console.log('this.router.navigateByUrl(navUrl)',this.router.navigateByUrl(navUrl))
   }
 
   deleteRow(id) {

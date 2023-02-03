@@ -6,13 +6,14 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './component/home-page/home-page.component';
 import { AddDataComponent } from './component/add-data/add-data.component';
 import { HttpClientModule } from '@angular/common/http';
-
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { PaginationPipe } from './pagination.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    AddDataComponent
+    AddDataComponent,
+    PaginationPipe
   ],
   imports: [
     BrowserModule,

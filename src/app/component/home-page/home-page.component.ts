@@ -24,6 +24,7 @@ export class HomePageComponent implements OnInit {
   }
   searchText;
   data;
+  page = 1;
   constructor(private router: Router, public homeService: HomeService) {
   }
 
@@ -102,7 +103,6 @@ export class HomePageComponent implements OnInit {
             ecnDatas[this.data[0][j]] = null;
           }
         }
-
         for (let prop in ecnDatas) {
           console.log('data is in tactplan body', prop);
           if (ecnDatas[prop]) {
@@ -119,11 +119,5 @@ export class HomePageComponent implements OnInit {
     }
   }
 
-  globalSearch(){
-    
-  }
-
-  clearGobalSearch(){
-    
-  }
+  
 }

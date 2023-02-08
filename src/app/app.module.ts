@@ -8,12 +8,14 @@ import { AddDataComponent } from './component/add-data/add-data.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PaginationPipe } from './pagination.pipe';
+import { CovidPageComponent } from './covid-page/covid-page.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     AddDataComponent,
-    PaginationPipe
+    PaginationPipe,
+    CovidPageComponent
   ],
   imports: [
     BrowserModule,

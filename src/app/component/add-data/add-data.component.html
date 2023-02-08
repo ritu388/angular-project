@@ -50,7 +50,7 @@
 
               </div>
             <div>
-              <button class="btn btn-primary mb-3 mt-2" data-target="#confirmationModal" (click)="submitData()" [disabled]="studentData.controls['Id'].invalid || studentData.controls['Name'].invalid || studentData.controls['RollNo'].invalid || studentData.controls['DateOFBirth'].invalid || studentData.controls['Phone'].invalid || action=== 'view'">Save</button>
+              <button class="btn btn-primary mb-3 mt-2" data-target="#confirmationModal" (click)="submitData()" [disabled]="studentData.controls['Id'].invalid && studentData.controls['Name'].invalid && studentData.controls['RollNo'].invalid && studentData.controls['DateOFBirth'].invalid && studentData.controls['Phone'].invalid && action=== 'view'">Save</button>
             </div>
           </form>
     </div>

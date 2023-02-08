@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
 
-  constructor() { }
+  constructor(public http: HttpClient) { }
 
   StudentData = [
     {
@@ -53,5 +54,9 @@ export class HomeService {
       // }
     }
 
+  }
+
+  getCovidData(){
+   return this.http.get(`${environment.api}/v4/min/timeseries.min.json`)
   }
 }

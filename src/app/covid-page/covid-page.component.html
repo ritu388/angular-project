@@ -3,47 +3,31 @@
 <div class="table-layout-fixed">
   <table class="table center-aligned-table container-border table-striped">
     <thead>
-      <tr>
-        <!-- <td *ngFor="let item of arrayOFObject; let i = index">
-          <tr class="table-row">
-            <input
-              class="form-control form-control-sm"
-              aria-label="inp"
-              (keyup)="advancedSearch($event.target.value, item.dbName)"
-              *ngIf="item.isAdvancedSearchColumn"
-            />
-          </tr>
-        </td> -->
-        <!-- <th class="d-flex"></th> -->
-      </tr>
-      <tr class="overview-tble-btm">
+      <tr class="overview-tble-btm" #pageinator>
         <th>SR.No</th>
         <th>Delta</th>
         <th>Delta7</th>
         <th>Total</th>
       </tr>
     </thead>
-    <tbody>
-      <tr
-        *ngFor="let query of arrayOFObject; let i = index" class="safety-query-row-1">
+    <tbody >
+      <tr *ngFor="let query of addPageList | filter: searchText  ; let i = index" class="safety-query-row-1" id="countList"> 
         <td>{{ i + 1}}</td>
         <td class="query_td_width">
-          {{ query.delta?confirmed: "-" }}
+          {{ query?.delta?.confirmed ? query?.delta?.confirmed : '-' }}
         </td>
         <td class="query_td_width">
-          {{ query.delta7?confirmed : "-" }}
+          {{ query?.delta7?.confirmed ? query?.delta7?.confirmed : '-' }}
         </td>
         <td class="query_td_width">
-          {{ query.total?confirmed : "-" }}
+          {{  query?.total?.confirmed ? query?.total?.confirmed : '-'}}
         </td>
       </tr>
     </tbody>
   </table>
-  <!-- <div class="mb-3 text-center">
-                    </div> -->
 </div>
 <div class="float-right">
-  <div class="pagination">
+  <div class="pagination" >
     <button class="prev_button" type="button" (click)="getPreviousPage()">
       Prev
     </button>

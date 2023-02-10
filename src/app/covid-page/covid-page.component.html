@@ -1,18 +1,18 @@
 <p>This is covid page</p>
 
-<div class="table-layout-fixed">
-  <table class="table center-aligned-table container-border table-striped">
+<div class="table-layout-fixed"> 
+  <table class="table center-aligned-table container-border table-striped table-hover container  sortable-table">
     <thead>
-      <tr class="overview-tble-btm" #pageinator>
-        <th>SR.No</th>
-        <th>Delta</th>
-        <th>Delta7</th>
-        <th>Total</th>
+      <tr class="overview-tble-btm" >
+        <!-- <th>SR.No</th> -->
+        <th (click)="sort('delta?.confirmed')"><i class='fas fa-angle-double-down'>Delta</i><i class='fas fa-angle-double-up'></i></th>
+        <th (click)="sort('delta7?.confirmed')"><i class='fas fa-angle-double-down'>Delta7</i><i class='fas fa-angle-double-up'></i></th>
+        <th (click)="sort('total?.confirmed')"><i class='fas fa-angle-double-down'>Total</i><i class='fas fa-angle-double-up'></i></th>
       </tr>
     </thead>
     <tbody >
       <tr *ngFor="let query of addPageList | filter: searchText  ; let i = index" class="safety-query-row-1" id="countList"> 
-        <td>{{ i + 1}}</td>
+        <!-- <td>{{ i + 1}}</td> -->
         <td class="query_td_width">
           {{ query?.delta?.confirmed ? query?.delta?.confirmed : '-' }}
         </td>
@@ -28,10 +28,10 @@
 </div>
 <div class="float-right">
   <div class="pagination" >
-    <button class="prev_button" type="button" (click)="getPreviousPage()">
+    <button class="prev_button" type="button" (click)="getPreviousPage()" [disabled]="presentPage == 1 ? true : false">
       Prev
     </button>
-    <button class="next_button" type="button" (click)="getNextPage()">
+    <button class="next_button" type="button" (click)="getNextPage()" [disabled]="presentPage == countOfPages ? true : false">
       Next
     </button>
   </div>

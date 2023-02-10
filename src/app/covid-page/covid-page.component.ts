@@ -15,6 +15,8 @@ export class CovidPageComponent implements OnInit {
   presentPage = 1;
   countPerEachPage = 10;
   countOfPages = 0;
+  isDesc: boolean = false;
+  column: string = 'CategoryName';
   constructor(public homeService: HomeService) { }
 
   ngOnInit(): void {
@@ -85,5 +87,24 @@ export class CovidPageComponent implements OnInit {
      console.log('list', list,this.addPageList.length)
     }
   }
+
+  sort(property) {
+    console.log('enter in sort property')
+    this.isDesc = !this.isDesc; //change the direction    
+    this.column = property;
+    let direction = this.isDesc ? 1 : -1;
+
+    this.arrayOFObject.sort(function (a, b) {
+      if (a[property] < b[property]) {
+        return -1 * direction;
+      }
+      else if (a[property] > b[property]) {
+        return 1 * direction;
+      }
+      else {
+        return 0;
+      }
+    });
+  };
 
 }

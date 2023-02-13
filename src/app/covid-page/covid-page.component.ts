@@ -15,8 +15,7 @@ export class CovidPageComponent implements OnInit {
   presentPage = 1;
   countPerEachPage = 10;
   countOfPages = 0;
-  isDesc: boolean = false;
-  column: string = 'CategoryName';
+  cPrev = -1;
   constructor(public homeService: HomeService) { }
 
   ngOnInit(): void {
@@ -60,9 +59,10 @@ export class CovidPageComponent implements OnInit {
 
   prepareList(){
     let datalist = this.arrayOFObject.length;
-    for (datalist = 0; datalist < 100; datalist++)
+    for (datalist = 0; datalist < 200; datalist++)
     this.arrayOFObject.push(datalist);
     this.addPageList = this.getCountOfPages();
+    // console.log('this.addPageList', this.addPageList)
   }
   getCountOfPages(){
     return Math.ceil(this.arrayOFObject.length / this.countPerEachPage);
@@ -84,27 +84,57 @@ export class CovidPageComponent implements OnInit {
     let p : any;
     for (p = 0; p < this.addPageList.length; p++) {
      let list =  document.getElementById("countList").innerHTML = document.getElementById("countList").innerHTML + this.addPageList[p] + "<br/>";
-     console.log('list', list,this.addPageList.length)
+    //  console.log('list', list,this.addPageList.length)
     }
   }
 
-  sort(property) {
-    console.log('enter in sort property')
-    this.isDesc = !this.isDesc; //change the direction    
-    this.column = property;
-    let direction = this.isDesc ? 1 : -1;
-
-    this.arrayOFObject.sort(function (a, b) {
-      if (a[property] < b[property]) {
-        return -1 * direction;
+  sortTable(n) {
+    console.log('enter in sortTable function')
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      table = document.getElementById("table");
+      console.log('table', table);
+      switching = true;
+      dir = "asc"; 
+      while (switching) {
+        switching = false;
+        rows = table.rows;
+        console.log('rows', rows)
+        /*Loop through all table rows (except the
+        first, which contains table headers):*/
+        for (i = 1; i < (rows.length - 1); i++) {
+          //start by saying there should be no switching:
+          shouldSwitch = false;
+          x = rows[i].getElementsByTagName("td")[n];
+          console.log('x', x, i)
+          y = rows[i + 1].getElementsByTagName("td")[n];
+          console.log('y', y, i + 1)
+          if (dir == "asc") {
+            console.log('enter in asc condition', dir)
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              shouldSwitch= true;
+              break;
+            }
+          } 
+          else if (dir == "desc") {
+            console.log('enter in desc condition', dir)
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+        if (shouldSwitch) {
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          //Each time a switch is done, increase this count by 1:
+          switchcount ++;      
+        } 
+        else {
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
       }
-      else if (a[property] > b[property]) {
-        return 1 * direction;
-      }
-      else {
-        return 0;
-      }
-    });
-  };
-
+  }
 }

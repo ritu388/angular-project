@@ -1,13 +1,16 @@
 <p>This is covid page</p>
 
 <div class="table-layout-fixed"> 
-  <table class="table center-aligned-table container-border table-striped table-hover container  sortable-table">
+  <div class="search-hero" style="margin-left: 67%;">
+    <input class="" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="">
+  </div>
+  <table class="table center-aligned-table container-border table-striped table-hover container  sortable-table" id="table">
     <thead>
       <tr class="overview-tble-btm" >
         <!-- <th>SR.No</th> -->
-        <th (click)="sort('delta?.confirmed')"><i class='fas fa-angle-double-down'>Delta</i><i class='fas fa-angle-double-up'></i></th>
-        <th (click)="sort('delta7?.confirmed')"><i class='fas fa-angle-double-down'>Delta7</i><i class='fas fa-angle-double-up'></i></th>
-        <th (click)="sort('total?.confirmed')"><i class='fas fa-angle-double-down'>Total</i><i class='fas fa-angle-double-up'></i></th>
+        <th (click)="sortTable(0)"><i class='fas fa-angle-double-down'>Delta</i><i class='fas fa-angle-double-up'></i></th>
+        <th (click)="sortTable(1)"><i class='fas fa-angle-double-down'>Delta7</i><i class='fas fa-angle-double-up'></i></th>
+        <th (click)="sortTable(2)"><i class='fas fa-angle-double-down'>Total</i><i class='fas fa-angle-double-up'></i></th>
       </tr>
     </thead>
     <tbody >

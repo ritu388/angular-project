@@ -68,6 +68,7 @@ export class CovidPageComponent implements OnInit {
   getCountOfPages(){
     return Math.ceil(this.arrayOFObject.length / this.countPerEachPage);
   }
+  
   loadMyPaginationList() {
     console.log('enter in loadmypaginationlist ')
     var start = ((this.presentPage - 1) * this.countPerEachPage);
@@ -90,51 +91,6 @@ export class CovidPageComponent implements OnInit {
   }
 
   sortTable(n) {
-    // console.log('enter in sortTable function')
-    // var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    //  let table = document.getElementById("table");
-    //   console.log('table', table);
-    //   switching = true;
-    //   dir = "asc"; 
-    //   while (switching) {
-    //     switching = false;
-    //     rows = table.rows;
-    //     console.log('rows', rows)
-    //     for (i = 1; i < (rows.length - 1); i++) {
-    //       shouldSwitch = false;
-    //       x = rows[i].getElementsByTagName("td")[n];
-    //       console.log('x', x, )
-    //       y = rows[i + 1].getElementsByTagName("td")[n];
-    //       console.log('y', y,)
-    //       if (dir == "asc") {
-    //         console.log('enter in asc condition', dir)
-    //         if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-    //           console.log('ascending the number', x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())
-    //           shouldSwitch= true;
-    //           break;
-    //         }
-    //       } 
-    //       else if (dir == "desc") {
-    //         console.log('enter in desc condition', dir)
-    //         if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-    //           console.log('descending the number ', x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase())
-    //           shouldSwitch = true;
-    //           break;
-    //         }
-    //       }
-    //     }
-    //     if (shouldSwitch) {
-    //       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-    //       switching = true;
-    //       switchcount ++;      
-    //     } 
-    //     else {
-    //       if (switchcount == 0 && dir == "asc") {
-    //         dir = "desc";
-    //         switching = true;
-    //       }
-    //     }
-    //   }
     this.sort_Table(document.getElementById("table"), n);
   }
 

@@ -9,13 +9,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PaginationPipe } from './pagination.pipe';
 import { CovidPageComponent } from './covid-page/covid-page.component';
+import { DemoPageComponent } from './component/demo-page/demo-page.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     AddDataComponent,
     PaginationPipe,
-    CovidPageComponent
+    CovidPageComponent,
+    DemoPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,46 @@
+<p>demo-page works!</p>
+<div class="table-layout-fixed">
+  <!-- <div class="search-hero" style="margin-left: 67%;">
+                      <input class="" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="">
+                    </div> -->
+  <table
+    class="table center-aligned-table container-border table-striped table-hover container sortable-table"
+    id="table"
+  >
+    <thead>
+      <tr class="overview-tble-btm">
+        <th style="text-align: center">ID</th>
+        <th style="text-align: center">UserID</th>
+        <th style="text-align: center">Title</th>
+        <th style="text-align: center">Body</th>
+        <!-- <th>Action</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let query of dataList; let i = index"
+        class="safety-query-row-1"
+        id="countList"
+      >
+        <!-- <td>{{ i + 1}}</td> -->
+        <td class="query_td_width">
+          {{ query?.id ? query?.id : "-" }}
+        </td>
+        <td class="query_td_width">
+          {{ query?.userId ? query?.userId : "-" }}
+        </td>
+        <td class="query_td_width">
+          {{ query?.title ? query?.title : "-" }}
+        </td>
+        <td class="query_td_width">
+          <div id="content">
+            {{ query?.body ? query?.body : "-" }}
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="float-right">
+  <div class="pagination"></div>
+</div>

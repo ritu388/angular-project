@@ -6,7 +6,7 @@ import { HomeService } from '../services/home.service';
   styleUrls: ['./covid-page.component.scss']
 })
 export class CovidPageComponent implements OnInit {
-  searchKey = Number;
+  // searchKey = Number;
   data: any[] = [];
   dataAcces: any[] = [];
   arrayOFObject:any [] = [];
@@ -112,8 +112,8 @@ export class CovidPageComponent implements OnInit {
       var retval=0;
       var col1 = a[col].toLowerCase().replace(',', '').replace('$', '').replace(' usd', '')
       var col2 = b[col].toLowerCase().replace(',', '').replace('$', '').replace(' usd', '')
-      var fA=parseFloat(col1);
-      var fB=parseFloat(col2);
+      var fA = parseFloat(col1);
+      var fB = parseFloat(col2);
       if(col1 != col2){
         if((fA==col1) && (fB==col2) ){ retval=( fA > fB ) ? this.asc : -1*this.asc; } //numerical
         else { retval=(col1 > col2) ? this.asc : -1*this.asc;}
@@ -121,7 +121,9 @@ export class CovidPageComponent implements OnInit {
       return retval; 
     });
     for(var rowidx=0;rowidx<rlen;rowidx++){
-      for(var colidx=0;colidx<arr[rowidx].length;colidx++){ table.tBodies[0].rows[rowidx].cells[colidx].innerHTML=arr[rowidx][colidx]; }
+      for(var colidx=0;colidx<arr[rowidx].length;colidx++){ 
+        table.tBodies[0].rows[rowidx].cells[colidx].innerHTML=arr[rowidx][colidx]; 
+      }
     }
    let hdr = table.rows[0].cells[col];
     if (this.asc == -1) {
@@ -130,5 +132,30 @@ export class CovidPageComponent implements OnInit {
       hdr.html((hdr).html() + '<span class="sortorder">▼</span>');
     }
   } 
+
+  searchTable(){
+    console.log('enter in searchTable function')
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchInp");
+    console.log('input', input)
+    filter = input.value.toUpperCase();
+    console.log('filter', filter)
+    table = document.getElementById("table");
+    console.log('table', table)
+    tr = table.getElementsByTagName("tr");
+    console.log('tr', tr)
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      console.log('td', td)
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
   
 }

@@ -2,15 +2,15 @@
 
 <div class="table-layout-fixed"> 
   <div class="search-hero" style="margin-left: 67%;">
-    <input class="" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="">
+    <input class="" id="searchInp" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="" (keyup.enter)="searchTable()">
   </div>
   <table class="table center-aligned-table container-border table-striped table-hover container  sortable-table" id="table">
     <thead>
       <tr class="overview-tble-btm" >
         <!-- <th>SR.No</th> -->
-        <th (click)="sortTable(0)">Delta</th>
-        <th (click)="sortTable(1)">Delta7</th>
-        <th (click)="sortTable(2)">Total</th>
+        <th (click)="sortTable(0)" style="cursor: pointer;">▲Delta▼</th>
+        <th (click)="sortTable(1)" style="cursor: pointer;">▲Delta7▼</th>
+        <th (click)="sortTable(2)" style="cursor: pointer;">▲Total▼</th>
       </tr>
     </thead>
     <tbody >
@@ -26,15 +26,20 @@
           {{  query?.total?.confirmed ? query?.total?.confirmed : '-'}}
         </td>
       </tr>
+      <tr *ngIf="addPageList?.length === 0">
+        <td colspan="12">
+          <h5>No Data Availabe for this category. </h5>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>
 <div class="float-right">
-  <div class="pagination" >
+  <div class="pagination">
     <button class="prev_button" type="button" (click)="getPreviousPage()" [disabled]="presentPage == 1 ? true : false">
       Prev
     </button>
-    <button class="next_button" type="button" (click)="getNextPage()" [disabled]="presentPage == countOfPages ? true : false">
+    <button class="next_button btn-primary" type="button" (click)="getNextPage()" [disabled]="presentPage == countOfPages ? true : false">
       Next
     </button>
   </div>
